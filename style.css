@@ -1,0 +1,48 @@
+body, option,.modal-body, .modal-footer{
+    background-color: #2f3031;
+    color: #f7f7f7;
+}
+
+.botaoOrdenacao{
+    border: none;
+    background: transparent;
+    margin: 0px;
+}
+
+.form-control::placeholder, #ano, #mes, #dia, #tipo, #descricao, #valor{
+    background-color: transparent;
+    color: white;
+}
+
+h5, .close{
+    color: white;
+}
+
+#header, #botaoPesquisar, #botaoCadastro{
+    background-color: #0ac153;
+    color: white;
+}
+
+a.nav-link{
+    font-size: 18px;
+}
+
+.borda{
+    border: 1px solid red;
+}
+
+@media (max-width: 767.98px)
+{
+    #botaoCadastro{
+        width: 100%;
+        margin: 10px 0px;
+    }
+
+    #botaoCadastro{
+        margin-bottom: 50%;
+    }
+}
+
+input[type = number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}

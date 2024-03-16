@@ -31,18 +31,67 @@ a.nav-link{
     border: 1px solid red;
 }
 
-@media (max-width: 767.98px)
-{
+input[type = number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+
+@media (max-width: 575.98px) {
     #botaoCadastro{
         width: 100%;
         margin: 10px 0px;
     }
 
-    #botaoCadastro{
+    #conteudo{
+        margin-top: 5%;
         margin-bottom: 50%;
+    }
+
+    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro{
+        height: 45px;
+        margin-bottom: 35px;
     }
 }
 
-input[type = number]::-webkit-inner-spin-button{
-    -webkit-appearance: none;
+@media (min-width: 576px) and (max-width: 767.98px) {
+    #botaoCadastro{
+        width: 100%;
+        margin: 10px 0px;
+    }
+
+    #conteudo{
+        margin-top: 15%;
+        margin-bottom: 50%;
+    }
+
+    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro{
+        height: 70px;
+        margin-bottom: 45px;
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    #botaoCadastro{
+        width: 100%;
+        margin: 10px 0px;
+    }
+
+    #conteudo{
+        margin-top: 5%;
+        margin-bottom: 50%;
+    }
+
+    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro{
+        height: 80px;
+        margin-bottom: 60px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    
+}
+
+@media (min-width: 1200px) {
+    
 }

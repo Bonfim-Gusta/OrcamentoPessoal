@@ -244,6 +244,7 @@ function carregarListaDespesas(despesasFiltradas)
     despesas.forEach(d => {
 
         let linha = listaDespesas.insertRow() //Cria uma linha no corpo da tabela
+
         linha.insertCell(0).innerHTML = d.dia + "/" + d.mes + "/" + d.ano //Adiciona um conteúdo relacionado ao th - Data
 
         if(listraTabela % 2 == 0)
@@ -273,7 +274,7 @@ function carregarListaDespesas(despesasFiltradas)
 
         linha.insertCell(1).innerHTML = d.tipo //Adiciona um conteúdo relacionado ao th - Tipo
         linha.insertCell(2).innerHTML = d.descricao //Adiciona um conteúdo relacionado ao th - Descrição
-        linha.insertCell(3).innerHTML = "R$" + d.valor //Adiciona um conteúdo relacionado ao th - Valor
+        linha.insertCell(3).innerHTML = "R$" + d.valor.replace('.',',') //Adiciona um conteúdo relacionado ao th - Valor
 
         valorTotal = valorTotal + parseFloat(d.valor) //Converte o valor em int e faz a soma de todos d.valor dos objetos
 
@@ -301,6 +302,14 @@ function carregarListaDespesas(despesasFiltradas)
             }
         }
         linha.insertCell(4).append(botao) //Adiciona o botão na linha
+
+        if(window.innerHeight > 650)
+        {
+            linha.style.height = "80px"
+            linha.style.lineHeight = "80px"
+            linha.style.fontSize = "29px"
+            botao.style.marginTop = "20px"
+        }
     })
 
     //Verifica se o array de despesas está vazio

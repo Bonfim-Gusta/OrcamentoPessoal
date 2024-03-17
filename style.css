@@ -12,6 +12,7 @@ body, option,.modal-body, .modal-footer{
 .form-control::placeholder, #ano, #mes, #dia, #tipo, #descricao, #valor{
     background-color: transparent;
     color: white;
+    font-size: 100%;
 }
 
 h5, .close{
@@ -35,7 +36,7 @@ input[type = number]::-webkit-inner-spin-button{
     -webkit-appearance: none;
 }
 
-
+/*
 @media (max-width: 575.98px) {
     #botaoCadastro{
         width: 100%;
@@ -45,53 +46,90 @@ input[type = number]::-webkit-inner-spin-button{
     #conteudo{
         margin-top: 15%;
         margin-bottom: 50%;
+        border: 5px solid red;
     }
 
-    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro{
+    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro, #botaoPesquisar{
         height: 55px;
         margin-bottom: 35px;
     }
 }
+*/
 
-@media (min-width: 576px) and (max-width: 767.98px) {
-    #botaoCadastro{
+@media (min-height: 650px){
+
+    a.nav-link{
+        font-size: 40px;
+    }
+
+    #botaoPesquisar i{
+        font-size: 62px;
+    }
+
+    #botaoCadastro, #botaoPesquisar{
         width: 100%;
         margin: 10px 0px;
     }
 
     #conteudo{
-        margin-top: 15%;
+        margin-top: 5%;
         margin-bottom: 50%;
     }
 
-    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro{
-        height: 70px;
-        margin-bottom: 45px;
+    .form-control::placeholder, option{
+        font-size: 40px;
     }
 
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-    #botaoCadastro{
-        width: 100%;
-        margin: 10px 0px;
+    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro, #botaoPesquisar{
+        height: 100px;
+        margin-bottom: 50px;
+        font-size: 40px;
     }
 
-    #conteudo{
-        margin-top: 15%;
-        margin-bottom: 50%;
+    .display-4{
+        font-size: 82px;
     }
 
-    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro{
+    .table{
         height: 80px;
-        margin-bottom: 60px;
+        line-height: 80px;
+        font-size: 18px;
+    }
+
+    th, tfoot{
+        font-size: 33px;
+    }
+
+    th i{
+        font-size: 25px;
+    }
+
+    img, button.navbar-toggler, button.navbar-toggler-icon{
+        width: 150px;
+        height: 150px;
+        font-size: 60px;
+    }
+
+
+    .modal-content{
+        margin: 140% -25%;
+        font-size: 200%;
+        width: 150%;
+    }
+
+    .modal-title{
+        font-size: 120%;
+    }
+
+    .btn{
+        font-size: 110%;
+    }
+
+    .modal{
+        margin: 0 auto;
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
-    
-}
-
-@media (min-width: 1200px) {
-    
+.containerMenor{
+    margin: 0px 10px;
 }

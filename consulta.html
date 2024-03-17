@@ -27,7 +27,7 @@
   <body onload="carregarListaDespesas()">
     <nav id="header" class="navbar navbar-expand-lg navbar-dark mb-5">
       <div class="container">
-        <a class="" href="#">
+        <a class="float-left" href="#">
            <img src="imagens/logo.png" width="60" height="60" alt="Orçamento pessoal">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div id="conteudo" class="container">
       <div class="row mb-5">
         <div class="col">
           <h1 class="display-4">Consulta de despesas</h1>
@@ -188,6 +188,17 @@
         </div>
       </div>
     </div>
+
+    <script>
+
+      if(window.innerHeight > 650)
+      {
+          let container = document.querySelector('#conteudo')
+  
+          container.className = "containerMenor"
+      }
+
+    </script>
   </body>	
 
 </html>

@@ -189,7 +189,7 @@ function cadastrarDespesa()
         {
             if(arrayAtributos[i].value == "")
             {
-                arrayAtributos[i].classList.add('borda')
+                arrayAtributos[i].style.borderColor = "red"
                 campos_restantes += arrayAtributos[i].attributes.getNamedItem('id').value.toUpperCase() + " | "
             }
         }
@@ -203,7 +203,7 @@ function cadastrarDespesa()
 //Ativada quando o campo é clicado
 function removeBorda(itemHtml)
 {
-    document.getElementById(itemHtml).classList.remove('borda')
+    document.getElementById(itemHtml).style.borderColor = ""
 }
 
 //Função que estiliza o modal exibido
@@ -345,15 +345,25 @@ function pesquisarDespesas()
 {
     removeCorSetas()
     
-    let ano = document.getElementById('ano').value
-    let mes = document.getElementById('mes').value
-    let dia = document.getElementById('dia').value
-    let tipo = document.getElementById('tipo').value
-    let descricao = document.getElementById('descricao').value
-    let valor = document.getElementById('valor').value
+    let arrayAtributos = Array(
+        ano = document.getElementById('ano'),
+        mes = document.getElementById('mes'),
+        dia = document.getElementById('dia'),
+        tipo = document.getElementById('tipo'),
+        descricao = document.getElementById('descricao'),
+        valor = document.getElementById('valor')
+    )
+
+    arrayAtributos.forEach(a => {
+        a.style.borderColor = ""
+        if(a.value != "")
+        {
+            a.style.border = "2px solid #148bc3"
+        }
+    })
 
     //Cria um objeto com os valores que foram aplicados no filtro
-    let despesa = new Despesa(ano, mes, dia, tipo, descricao, valor)
+    let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value)
 
     let filtro = bd.pesquisar(despesa) //Recebe uma array de retorno do método pesquisar com os objetos filtrados
 

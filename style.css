@@ -7,10 +7,16 @@ body, option,.modal-body, .modal-footer{
     color: #f7f7f7;
 }
 
-.botaoOrdenacao{
-    border: none;
-    background: transparent;
-    margin: 0px;
+.containerMenor{
+    margin: 0px 10px;
+}
+
+h5, .close{
+    color: white;
+}
+
+a.nav-link{
+    font-size: 18px;
 }
 
 .form-control::placeholder, #ano, #mes, #dia, #tipo, #descricao, #valor{
@@ -19,25 +25,23 @@ body, option,.modal-body, .modal-footer{
     font-size: 100%;
 }
 
-h5, .close{
-    color: white;
-}
-
 #header, #botaoPesquisar, #botaoCadastro{
     background-color: #0ac153;
     color: white;
 }
 
-a.nav-link{
-    font-size: 18px;
+input[type = number]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+.botaoOrdenacao{
+    border: none;
+    background: transparent;
+    margin: 0px;
 }
 
 .borda{
     border: 1px solid red;
-}
-
-input[type = number]::-webkit-inner-spin-button{
-    -webkit-appearance: none;
 }
 
 th{
@@ -52,10 +56,29 @@ th{
     }
 }
 
-
 @media (min-height: 650px){
 
+    img, button.navbar-toggler, button.navbar-toggler-icon{
+        width: 150px;
+        height: 150px;
+        font-size: 60px;
+    }
+
     a.nav-link{
+        font-size: 40px;
+    }
+
+    .display-4{
+        font-size: 82px;
+    }
+
+    .form-control::placeholder, option{
+        font-size: 40px;
+    }
+
+    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro, #botaoPesquisar{
+        height: 100px;
+        margin-bottom: 50px;
         font-size: 40px;
     }
 
@@ -73,20 +96,6 @@ th{
         margin-bottom: 50%;
     }
 
-    .form-control::placeholder, option{
-        font-size: 40px;
-    }
-
-    #ano, #mes, #dia, #tipo, #descricao, #valor, #botaoCadastro, #botaoPesquisar{
-        height: 100px;
-        margin-bottom: 50px;
-        font-size: 40px;
-    }
-
-    .display-4{
-        font-size: 82px;
-    }
-
     .table{
         height: 80px;
         line-height: 80px;
@@ -100,13 +109,6 @@ th{
     th i{
         font-size: 25px;
     }
-
-    img, button.navbar-toggler, button.navbar-toggler-icon{
-        width: 150px;
-        height: 150px;
-        font-size: 60px;
-    }
-
 
     .modal-content{
         margin: 140% -25%;
@@ -125,8 +127,4 @@ th{
     .modal{
         margin: 0 auto;
     }
-}
-
-.containerMenor{
-    margin: 0px 10px;
 }

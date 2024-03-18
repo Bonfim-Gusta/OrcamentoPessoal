@@ -164,7 +164,6 @@ function cadastrarDespesa()
                 contaDadosIguais++
             }
         })
-        console.log('contaDados: ' + contaDadosIguais)
 
         if(contaDadosIguais > 0)
         {
@@ -222,15 +221,19 @@ function modalRegistraDespesa(bgTitle, title, msg, btnColor, textBtn, campos_res
 function carregarListaDespesas(despesasFiltradas)
 {
     let despesas = bd.recuperarTodosRegistros() //Armazena todos os registros
+
     let listaDespesas = document.getElementById('listaDespesas') //seleciona o corpo da tabela
+
     let linharodape = document.getElementById("total") //Seleciona o rodapé da tabela
     linharodape.innerHTML = ""
     linharodape.style.borderTop = "3px solid white"
+
     let recado = document.getElementById('recado') //Seleciona a área que exibirá um recado
     recado.innerHTML = ""
     recado.style.margin = 15 + 'px'
     recado.style.fontSize = 26 + 'px'
     recado.style.textAlign = 'center'
+
     let valorTotal = 0 //Recebe a soma dos valores de todas as despesas exibidas na tela
 
     if(despesasFiltradas != null) //Verifica se foi recebido um parâmetro: Se sim, altera o conteúdo de despesas
@@ -240,6 +243,7 @@ function carregarListaDespesas(despesasFiltradas)
     }
     
     let listraTabela = 1
+
     //Passa por cada item de despesas e exibe uma linha de tabela na tela
     despesas.forEach(d => {
 
@@ -371,7 +375,7 @@ let crescenteDecrescente = false
 
 function ordenaDespesasValor()
 {
-    let despesas = pesquisarDespesas()
+    let ordemValor = pesquisarDespesas()
 
     let setaCima = document.querySelector('#Valor .fa-arrow-up')
     let setaBaixo = document.querySelector('#Valor .fa-arrow-down')
@@ -380,22 +384,22 @@ function ordenaDespesasValor()
 
     if(crescenteDecrescente === false)
     {
-        despesas = despesas.sort((a,b) => a.valor - b.valor)
+        ordemValor = ordemValor.sort((a,b) => a.valor - b.valor)
         crescenteDecrescente = true
         setaCima.style.color = 'green'
     }
     else
     {
-        despesas = despesas.sort((a,b) => b.valor - a.valor)
+        ordemValor = ordemValor.sort((a,b) => b.valor - a.valor)
         crescenteDecrescente = false
         setaBaixo.style.color = 'red'
     }
-    carregarListaDespesas(despesas)
+    carregarListaDespesas(ordemValor)
 }
 
 function ordenaDespesasDescricao()
 {
-    let despesas = pesquisarDespesas()
+    let ordemDescricao = pesquisarDespesas()
 
     let setaCima = document.querySelector('#Descricao .fa-arrow-up')
     let setaBaixo = document.querySelector('#Descricao .fa-arrow-down')
@@ -404,22 +408,22 @@ function ordenaDespesasDescricao()
 
     if(crescenteDecrescente === false)
     {
-        despesas = despesas.sort((p1, p2) => p1.descricao.localeCompare(p2.descricao))
+        ordemDescricao = ordemDescricao.sort((p1, p2) => p1.descricao.localeCompare(p2.descricao))
         crescenteDecrescente = true
         setaCima.style.color = 'yellowgreen'
     }
     else
     {
-        despesas = despesas.sort((p1, p2) => p2.descricao.localeCompare(p1.descricao))
+        ordemDescricao = ordemDescricao.sort((p1, p2) => p2.descricao.localeCompare(p1.descricao))
         crescenteDecrescente = false
         setaBaixo.style.color = 'red'
     }
-    carregarListaDespesas(despesas)
+    carregarListaDespesas(ordemDescricao)
 }
 
 function ordenaDespesasTipo()
 {
-    let despesas = pesquisarDespesas()
+    let ordemTipo = pesquisarDespesas()
 
     let setaCima = document.querySelector('#Tipo .fa-arrow-up')
     let setaBaixo = document.querySelector('#Tipo .fa-arrow-down')
@@ -428,17 +432,17 @@ function ordenaDespesasTipo()
 
     if(crescenteDecrescente === false)
     {
-        despesas = despesas.sort((p1, p2) => p1.tipo.localeCompare(p2.tipo))
+        ordemTipo = ordemTipo.sort((p1, p2) => p1.tipo.localeCompare(p2.tipo))
         crescenteDecrescente = true
         setaCima.style.color = 'yellowgreen'
     }
     else
     {
-        despesas = despesas.sort((p1, p2) => p2.tipo.localeCompare(p1.tipo))
+        ordemTipo = ordemTipo.sort((p1, p2) => p2.tipo.localeCompare(p1.tipo))
         crescenteDecrescente = false
         setaBaixo.style.color = 'red'
     }
-    carregarListaDespesas(despesas)
+    carregarListaDespesas(ordemTipo)
 }
 
 function ordenaDespesasData()
@@ -452,7 +456,6 @@ function ordenaDespesasData()
 
     let despesasMes = []
     let despesasDia = []
-
     let ordemData = []
 
     if(crescenteDecrescente === false)
@@ -460,24 +463,18 @@ function ordenaDespesasData()
         for(let i = 2023; i <= 2025; i++)
         {
             despesasMes = despesas.filter(d => d.ano == i).sort((a,b) =>  a.mes - b.mes)
-            console.log(despesasMes)
             for(let i = 1; i <= 12; i++)
             {
                 despesasDia = despesasMes.filter(d => d.mes == i).sort((a,b) =>  a.dia - b.dia)
-                console.log(despesasDia)
                 
                 if(despesasDia.length != 0)
                 {
                     ordemData.push(...despesasDia)
                 }
             }
-            //despesasMes.forEach(d => d.sort((d,b) => d.dia - b.dia))
-            //despesasDia = despesasMes.sort((a,b) => a.dia - b.dia)
-            //ordemData.push(...despesasDia)
         }
         crescenteDecrescente = true
-        setaCima.style.color = 'yellowgreen'
-        console.log('ordem despesa: ' + ordemData[{}])
+        setaCima.style.color = 'yellowgreen';
     }
     else
     {
@@ -495,13 +492,9 @@ function ordenaDespesasData()
                     ordemData.push(...despesasDia)
                 }
             }
-            //despesasMes.forEach(d => d.sort((d,b) => d.dia - b.dia))
-            //despesasDia = despesasMes.sort((a,b) => a.dia - b.dia)
-            //ordemData.push(...despesasDia)
         }
         crescenteDecrescente = false
         setaBaixo.style.color = 'red'
     }
     carregarListaDespesas(ordemData)
-    document.querySelector('body')
 }
